@@ -18,7 +18,7 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const Redis = require("ioredis");
-const uuid = require("uuid");
+const uuid_1 = require("uuid");
 const redis_constants_1 = require("./redis.constants");
 class RedisClientError extends Error {
 }
@@ -37,7 +37,7 @@ exports.createClient = () => ({
     provide: redis_constants_1.REDIS_CLIENT,
     useFactory: (options) => __awaiter(this, void 0, void 0, function* () {
         const clients = new Map();
-        let defaultKey = uuid();
+        let defaultKey = uuid_1.v4();
         if (Array.isArray(options)) {
             yield Promise.all(options.map((o) => __awaiter(this, void 0, void 0, function* () {
                 const key = o.name || defaultKey;
